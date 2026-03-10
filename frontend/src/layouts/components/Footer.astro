@@ -1,0 +1,85 @@
+---
+import { Facebook, Instagram, Twitter, Mail, MapPin, Phone } from 'lucide-react';
+
+const currentYear = new Date().getFullYear();
+const navItems = [
+  { name: 'Inicio', href: '/' },
+  { name: 'Nosotros', href: '/nosotros' },
+  { name: 'Parroquias', href: '/parroquias' },
+  { name: 'Recursos', href: '/recursos' },
+  { name: 'Donaciones', href: '/donaciones' }
+];
+---
+
+<footer class="bg-white pt-16 pb-8 border-t border-gray-100">
+  <div class="max-w-7xl mx-auto px-4 md:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
+      
+      <!-- Columna 1: Info e Identidad -->
+      <div class="space-y-6">
+        <div class="flex items-center gap-3">
+          <img 
+            src="src/assets/Logo Zona Central.jpg" 
+            alt="Logo PJZC" 
+            class="h-12 w-12"
+          />
+          <div>
+            <h3 class="font-black text-blue-900 text-xl leading-none">PJZC</h3>
+            <p class="text-[10px] text-gray-400 tracking-widest uppercase font-bold">Zona Central</p>
+          </div>
+        </div>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          Trabajamos por la evangelización y formación integral de los jóvenes de nuestra zona, promoviendo la civilización del amor y el servicio comunitario.
+        </p>
+        <div class="flex gap-4">
+          <a href="https://www.facebook.com/PastoralJuvenilZonaCentral/" class="p-2 bg-blue-50 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all shadow-sm" aria-label="Facebook">
+            <Facebook size={18} />
+          </a>
+          <a href="https://www.instagram.com/pjzonacentral/" class="p-2 bg-blue-50 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all shadow-sm" aria-label="Instagram">
+            <Instagram size={18} />
+          </a>
+          <a href="https://x.com/pj_zonacentral" class="p-2 bg-blue-50 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all shadow-sm" aria-label="Twitter">
+            <Twitter size={18} />
+          </a>
+        </div>
+      </div>
+
+      <!-- Columna 2: Inspiración -->
+      <div>
+        <h4 class="font-bold text-blue-900 mb-6 uppercase tracking-wider text-sm">Nuestra Misión</h4>
+        <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 shadow-inner">
+          <p class="text-blue-800 text-sm italic font-medium leading-relaxed">
+            "Ustedes son el ahora de Dios, y Él los quiere fecundos."
+          </p>
+          <p class="text-blue-400 text-xs mt-4 font-bold uppercase tracking-tighter">— Papa Francisco</p>
+        </div>
+      </div>
+
+        <!-- Columna 3: Enlaces Rápidos -->
+        <div>
+            <h4 class="font-bold text-blue-900 mb-6 uppercase tracking-wider text-sm">Explora</h4>
+            <ul class="space-y-4">
+            {navItems.map((item) => (
+                <li>
+                <a href={item.href} class="text-gray-500 hover:text-blue-600 transition-colors text-sm flex items-center gap-2 group">
+                    <span class="w-1.5 h-1.5 bg-yellow-500 rounded-full opacity-0 group-hover:opacity-100 transition-all"></span>
+                    {item.name}
+                </a>
+                </li>
+            ))}
+            </ul>
+        </div>
+    </div>
+
+    </div>
+
+    <!-- Barra inferior de Copyright -->
+    <div class="pt-8 border-t border-gray-100 flex flex-col md:row justify-between items-center gap-4 text-xs text-gray-400 uppercase tracking-widest font-medium">
+      <p>© {currentYear} Pastoral Juvenil Zona Central - Todos los derechos reservados</p>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-blue-600 transition-colors">Privacidad</a>
+        <a href="#" class="hover:text-blue-600 transition-colors">Términos</a>
+      </div>
+    </div>
+  </div>
+</footer>

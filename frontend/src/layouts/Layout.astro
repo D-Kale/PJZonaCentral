@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css'
+import Header from './components/Header.jsx'
+import Footer from './components/Footer.astro'
 ---
 
 <!doctype html>
@@ -13,15 +15,10 @@ import '../styles/global.css'
 		<title>Astro Basics</title>
 	</head>
 	<body>
-		<slot />
+		<Header client:load />
+		<div>
+			<slot />
+		</div>
+		<Footer/>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

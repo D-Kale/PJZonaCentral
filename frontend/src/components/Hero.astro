@@ -1,0 +1,77 @@
+---
+import { ChevronRight } from 'lucide-react';
+
+// Definimos las propiedades si quisiéramos hacer el texto dinámico en el futuro
+const { 
+  title = "Cristo Vive y te quiere vivo", 
+  subtitle = "Somos la Pastoral Juvenil de la Zona Central de Managua, un espacio donde los jóvenes encuentran fe, comunidad y propósito siguiendo los pasos de Jesús." 
+} = Astro.props;
+---
+
+<section class="relative h-screen min-h-600px flex items-center justify-center overflow-hidden bg-blue-900">
+  <!-- Imagen de fondo con overlay -->
+  <div class="absolute inset-0 z-0">
+    <img 
+      src="src/assets/Hero.jpg"
+      alt="Jóvenes compartiendo en comunidad" 
+      class="w-full h-full object-cover opacity-40"
+    />
+    <div class="absolute inset-0 bg-gradient from-blue-900/60 via-blue-900/40 to-blue-900"></div>
+  </div>
+
+  <!-- Contenido del Hero -->
+  <div class="relative z-10 max-w-5xl mx-auto px-4 text-center text-white">
+    <span class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-[0.3em] uppercase bg-yellow-500 text-blue-900 rounded-full">
+      Bienvenidos a la PJZC
+    </span>
+    
+    <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+      {title.split(' quiere ')[0]} <br />
+      <span class="text-yellow-400">quiere vivo</span>
+    </h1>
+    
+    <p class="text-lg md:text-xl text-blue-100 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+      {subtitle}
+    </p>
+    
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a 
+        href="/unete" 
+        class="bg-yellow-500 hover:bg-yellow-400 text-blue-900 px-8 py-4 rounded-xl font-bold transition-all transform hover:scale-105 flex items-center justify-center gap-2 shadow-xl"
+      >
+        Únete a un grupo <ChevronRight size={20} />
+      </a>
+      <a 
+        href="/actividades" 
+        class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-xl font-bold transition-all flex items-center justify-center gap-2 text-center"
+      >
+        Ver actividades
+      </a>
+    </div>
+  </div>
+
+  <!-- Decoración inferior (Onda SVG) -->
+  <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-0">
+    <svg class="relative block w-full h-60px" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C58.47,105.14,124.75,108.31,187.59,95.38c58-11.94,115.4-31.14,172.5-41.86A600.21,600.21,0,0,1,321.39,56.44Z" fill="#ffffff"></path>
+    </svg>
+  </div>
+</section>
+
+<style>
+  /* Animación simple para el span de bienvenida */
+  span {
+    animation: fadeInDown 0.8s ease-out;
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
